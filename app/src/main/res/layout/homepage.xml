@@ -9,17 +9,13 @@
 
     android:background="@drawable/homebg"
 
+
     tools:context=".Homepage"
   >
 
 
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
 
-        android:translationX="-150dp"
-        >
 
 
         <ImageView
@@ -28,93 +24,17 @@
             android:layout_height="wrap_content"
             android:src="@drawable/cameraicon"
 
+
             android:layout_gravity="center" />
 
-        <ImageView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:src="@drawable/birdpic"/>
-
-
-
-
-    </FrameLayout>
-
-
-
-    <ImageButton
-        android:layout_width="97dp"
-        android:layout_height="97dp"
-        android:id="@+id/about_btn"
-        android:src="@drawable/aboutbtn"
-        android:translationX="0dp"
-        android:translationY="0dp"
-
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
-
-        android:background="#00000000"
-        android:scaleType="fitXY" />
-
-    <ImageButton
-        android:layout_width="97dp"
-        android:layout_height="97dp"
-        android:id="@+id/gallery_btn"
-        android:src="@drawable/gallerybtn"
-        android:translationX="110dp"
-        android:translationY="60dp"
-
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
-
-        android:background="#00000000"
-        android:scaleType="fitXY" />
-
-    <ImageButton
-        android:layout_width="97dp"
-        android:layout_height="97dp"
-        android:id="@+id/favourite_btn"
-        android:src="@drawable/favuritbtn"
-        android:translationX="119dp"
-        android:translationY="192dp"
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
-
-        android:background="#00000000"
-        android:scaleType="fitXY" />
-
-    <ImageButton
-        android:layout_width="97dp"
-        android:layout_height="97dp"
-        android:id="@+id/blog_btn"
-        android:src="@drawable/blogbtn"
-        android:translationX="110dp"
-        android:translationY="320dp"
-
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
-
-        android:background="#00000000"
-        android:scaleType="fitXY" />
-
-    <ImageButton
-        android:layout_width="97dp"
-        android:layout_height="97dp"
-        android:id="@+id/contact_btn"
-        android:src="@drawable/contactbtn"
-        android:translationX="15dp"
-        android:translationY="418dp"
-        android:layout_centerHorizontal="true"
-        android:adjustViewBounds="true"
-        android:cropToPadding="false"
-
-        android:background="#00000000"
-        android:scaleType="fitXY" />
-
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aboutbtn"
+            android:id="@+id/aboutbtn"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="55dp" />
 
 
 </RelativeLayout>

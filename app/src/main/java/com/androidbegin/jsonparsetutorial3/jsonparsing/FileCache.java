@@ -1,4 +1,4 @@
-package com.androidbegin.jsonparsetutorial3;
+package com.androidbegin.jsonparsetutorial3.jsonparsing;
 
 import android.content.Context;
 

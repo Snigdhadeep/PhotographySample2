@@ -1,10 +1,13 @@
-package com.androidbegin.jsonparsetutorial3;
+package com.androidbegin.jsonparsetutorial3.jsonparsing;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.androidbegin.jsonparsetutorial3.R;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.ImageLoader;
 
 public class SingleItemView extends Activity {
 	// Declare Variables

@@ -8,7 +8,6 @@
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -19,12 +18,7 @@
             android:name=".Homepage"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
         </activity>
-
-
         <activity android:name=".Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,9 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".SingleItemView"></activity>
+        <activity android:name=".jsonparsing.MainActivity" />
+        <activity android:name=".jsonparsing.SingleItemView" />
+        <activity
+            android:name=".jsonparsing.ButtonActivities.Blog_Activity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

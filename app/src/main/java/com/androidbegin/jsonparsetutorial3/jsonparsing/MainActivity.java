@@ -1,4 +1,4 @@
-package com.androidbegin.jsonparsetutorial3;
+package com.androidbegin.jsonparsetutorial3.jsonparsing;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -6,6 +6,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+
+import com.androidbegin.jsonparsetutorial3.R;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.ListViewAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
