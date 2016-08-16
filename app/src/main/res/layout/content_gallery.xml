@@ -6,8 +6,10 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background_with_shadow"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".jsonparsing.ButtonActivities.Blog_Activity"
-   >
-    <include layout="@layout/listview_main" />
+    tools:context=".jsonparsing.ButtonActivities.Gallery_Activity"
+
+
+    >
+    <include layout="@layout/listview_gallery_main" />
 
 </RelativeLayout>

@@ -18,6 +18,7 @@ import com.androidbegin.jsonparsetutorial3.jsonparsing.SingleItemView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.IllegalFormatCodePointException;
 
 public class ListViewAdapter extends BaseAdapter {
 
@@ -55,41 +56,54 @@ public class ListViewAdapter extends BaseAdapter {
 
 
 		ImageView flag;
+		ImageView flag1;
+		ImageView flag_gallery;
 		TextView title;
 		TextView date;
 		TextView multitext;
 
 		inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		//View itemView = inflater.inflate(R.layout.listview_item, parent, false);
+		View itemView_gallery = inflater.inflate(R.layout.listview_galleryitem, parent, false);
 
-		View itemView = inflater.inflate(R.layout.listview_item, parent, false);
 		// Get the position
 		resultp = data.get(position);
 
 		// Locate the TextViews in listview_item.xml
-		title = (TextView) itemView.findViewById(R.id.title);
+	/*	title = (TextView) itemView.findViewById(R.id.title);
 		date = (TextView) itemView.findViewById(R.id.date);
-		multitext = (TextView) itemView.findViewById(R.id.multitext);
-
-
+		multitext = (TextView) itemView.findViewById(R.id.multitext);*/
 
 
 		// Locate the ImageView in listview_item.xml
-		flag = (ImageView) itemView.findViewById(R.id.flag);
+	//	flag1 = (ImageView) itemView.findViewById(R.id.flag);
+
+		flag = (ImageView) itemView_gallery.findViewById(R.id.flag_gallery);
 
 		// Capture position and set results to the TextViews
-		title.setText(resultp.get(Blog_Activity.TITLE));
+	/*	title.setText(resultp.get(Blog_Activity.TITLE));
 		date.setText(resultp.get(Blog_Activity.DATE));
-		multitext.setText(resultp.get(Blog_Activity.MULTITEXT));
+		multitext.setText(resultp.get(Blog_Activity.MULTITEXT));*/
+
+
+	/*	title.setText(resultp.get(Gallery_Activity.TITLE));
+		date.setText(resultp.get(Gallery_Activity.DATE));
+		multitext.setText(resultp.get(Gallery_Activity.MULTITEXT));*/
+
+
+
+
 
 
 
 
 		// Capture position and set results to the ImageView
 		// Passes flag images URL into ImageLoader.class
-		imageLoader.DisplayImage(resultp.get(Blog_Activity.FLAG), flag);
+		//imageLoader.DisplayImage(resultp.get(Blog_Activity.FLAG), flag1);
+		imageLoader.DisplayImage(resultp.get(Gallery_Activity.FLAG), flag);
 		// Capture ListView item click
-		itemView.setOnClickListener(new OnClickListener() {
+		itemView_gallery.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
@@ -97,7 +111,7 @@ public class ListViewAdapter extends BaseAdapter {
 				resultp = data.get(position);
 				Intent intent = new Intent(context, SingleItemView.class);
 				// Pass all data rank
-				intent.putExtra("rank", resultp.get(Blog_Activity.RANK));
+			/*	intent.putExtra("rank", resultp.get(Blog_Activity.RANK));
 				// Pass all data country
 				intent.putExtra("country", resultp.get(Blog_Activity.COUNTRY));
 				// Pass all data population
@@ -105,11 +119,26 @@ public class ListViewAdapter extends BaseAdapter {
 				// Pass all data flag
 				intent.putExtra("flag", resultp.get(Blog_Activity.FLAG));
 				// Start SingleItemView Class
-				intent.putExtra("title", resultp.get(Blog_Activity.TITLE));
+				intent.putExtra("title", resultp.get(Blog_Activity.TITLE));*/
+
+
+
+
+
+				intent.putExtra("rank", resultp.get(Gallery_Activity.RANK));
+				// Pass all data country
+				intent.putExtra("country", resultp.get(Gallery_Activity.COUNTRY));
+				// Pass all data population
+				intent.putExtra("population",resultp.get(Gallery_Activity.POPULATION));
+				// Pass all data flag
+				intent.putExtra("flag", resultp.get(Gallery_Activity.FLAG));
+				// Start SingleItemView Class
+				intent.putExtra("title", resultp.get(Gallery_Activity.TITLE));
+
 				context.startActivity(intent);
 
 			}
 		});
-		return itemView;
+		return itemView_gallery;
 	}
 }

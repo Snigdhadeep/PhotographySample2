@@ -7,6 +7,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
 
+
     android:background="@drawable/homebg"
 
 
@@ -30,11 +31,38 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="aboutbtn"
-            android:id="@+id/aboutbtn"
+            android:text="blogbtn"
+            android:id="@+id/blogbtn"
+            android:layout_marginBottom="53dp"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="55dp" />
+            android:layout_toLeftOf="@+id/gallerybtn"
+            android:layout_toStartOf="@+id/gallerybtn" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gallerybtn"
+            android:id="@+id/gallerybtn"
+            android:layout_alignTop="@+id/blogbtn"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="news"
+            android:id="@+id/newsbtn"
+            android:layout_alignTop="@+id/blogbtn"
+            android:layout_toLeftOf="@+id/blogbtn"
+            android:layout_toStartOf="@+id/blogbtn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="about"
+            android:id="@+id/aboutbtn"
+            android:layout_alignBottom="@+id/newsbtn"
+            android:layout_toLeftOf="@+id/newsbtn"
+            android:layout_toStartOf="@+id/newsbtn" />
 
 
 </RelativeLayout>

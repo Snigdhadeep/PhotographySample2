@@ -17,8 +17,7 @@
         <activity
             android:name=".Homepage"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".Splashscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +30,22 @@
         <activity
             android:name=".jsonparsing.ButtonActivities.Blog_Activity"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".jsonparsing.ButtonActivities.Gallery_Activity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".jsonparsing.ButtonActivities.News_Activity"
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+
+            android:name=".jsonparsing.ButtonActivities.About_Activity"
+
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar"
+            />
     </application>
 
 </manifest>

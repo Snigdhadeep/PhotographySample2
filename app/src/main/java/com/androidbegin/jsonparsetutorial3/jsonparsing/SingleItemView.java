@@ -37,7 +37,7 @@ public class SingleItemView extends Activity {
 		// Locate the TextViews in singleitemview.xml
 		TextView txtrank = (TextView) findViewById(R.id.rank);
 		TextView txtcountry = (TextView) findViewById(R.id.country);
-		TextView txtpopulation = (TextView) findViewById(R.id.population);
+		TextView txtpopulation = (TextView) findViewById(R.id.multitext);
 
 		// Locate the ImageView in singleitemview.xml
 		ImageView imgflag = (ImageView) findViewById(R.id.flag);
