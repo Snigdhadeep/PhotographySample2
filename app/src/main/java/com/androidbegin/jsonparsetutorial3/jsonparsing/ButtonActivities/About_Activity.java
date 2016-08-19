@@ -23,7 +23,7 @@ public class About_Activity extends AppCompatActivity {
         webView = (WebView) findViewById(R.id.webviewabout);
         webView.setWebViewClient(new MyWebViewClient());
 
-        String url = "http://parthaphotography.com/about";
+        String url = "http://parthaphotography.com/wp-json/wp/v2/portfolio/";
         webView.getSettings().setJavaScriptEnabled(true);
         webView.loadUrl(url);
 

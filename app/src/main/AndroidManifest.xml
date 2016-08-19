@@ -36,12 +36,16 @@
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".jsonparsing.ButtonActivities.News_Activity"
-            android:label=""
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
 
             android:name=".jsonparsing.ButtonActivities.About_Activity"
+
+            android:label=""
+            android:theme="@style/AppTheme.NoActionBar"
+            />
+
+        <activity
+
+            android:name=".jsonparsing.ButtonActivities.News_Activity"
 
             android:label=""
             android:theme="@style/AppTheme.NoActionBar"

@@ -42,14 +42,15 @@ public class Blog_Activity extends AppCompatActivity
     ListViewAdapter adapter;
     ProgressDialog mProgressDialog;
     ArrayList<HashMap<String, String>> arraylist;
-    static String RANK = "rank";
+
     static String COUNTRY = "country";
-    static String POPULATION = "population";
+
     static String FLAG = "flag";
 
     static String TITLE = "title";
-    static String DATE = "date";
+
     static String MULTITEXT= "multitext";
+    static String CONTENT="content";
 
 
 
@@ -143,27 +144,34 @@ public class Blog_Activity extends AppCompatActivity
                     JSONObject jsonObject = jsonArray.getJSONObject(i);  // get jsonObject @ i position
                     //System.out.println("jsonObject " + i + ": " + jsonObject);
 
+
+
+                    //fetch tittle
                   JSONObject titlejson=jsonObject.getJSONObject("title");
                     String title=titlejson.getString("rendered");
-
+                      //fetch content in blog  page
                     JSONObject contentjson=jsonObject.getJSONObject("excerpt");
                     String content=contentjson.getString("rendered");
                     String contenthtml= Html.fromHtml(content).toString();
 
+                    //fetch image in  blog page
 
                     JSONObject imagejson=jsonObject.getJSONObject("better_featured_image");
                     String pic=imagejson.getString("source_url");
-                    Log.i("kingsukmajumder",title);
-                    //String image= jsonObject.getJSONObject("acf").getString("display_pic");
-                    String date= jsonObject.getString("date");
 
+                    //fetch content page in single itemview
+                    JSONObject contentsingleitemjson=jsonObject.getJSONObject("content");
+                    String contentsingleitem=contentsingleitemjson.getString("rendered");
 
+                    Log.i("kingsukmajumder",contentsingleitem);
 
                     map.put("flag", pic);
 
                     map.put("title", title);
 
                     map.put("multitext", contenthtml);
+
+                    map.put("country",contentsingleitem);
 
 
 

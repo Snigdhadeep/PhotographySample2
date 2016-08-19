@@ -7,7 +7,7 @@
     >
 
     <WebView
-        android:id="@+id/webView_blogcontent"
+        android:id="@+id/webView_news"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"/>
     <!--//Description-->

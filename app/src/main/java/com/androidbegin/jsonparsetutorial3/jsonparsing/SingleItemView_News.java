@@ -4,15 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.androidbegin.jsonparsetutorial3.R;
-import com.androidbegin.jsonparsetutorial3.jsonparsing.ImageLoader;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.Blog_Activity;
 
-import java.util.HashMap;
-
-public class SingleItemView extends Activity {
+public class SingleItemView_News extends Activity {
 	// Declare Variables
 	String rank;
 	String country;
@@ -21,8 +17,6 @@ public class SingleItemView extends Activity {
 	String content;
 	String position;
 	ImageLoader imageLoader = new ImageLoader(this);
-
-
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +36,7 @@ public class SingleItemView extends Activity {
 
 
 
-		country = i.getStringExtra("country1");
+
 
 		WebView webViewcontent=(WebView)findViewById(R.id.webView_blogcontent);
 		webViewcontent.loadData(country, "text/html", null);

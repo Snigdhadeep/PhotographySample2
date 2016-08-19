@@ -50,7 +50,7 @@ public class Gallery_Activity extends AppCompatActivity
 
     static String TITLE = "title";
     static String DATE = "date";
-    static String MULTITEXT= "multitext";
+    static String MULTITEXT= "multitext2";
 
 
 
@@ -92,8 +92,7 @@ public class Gallery_Activity extends AppCompatActivity
             super.onPreExecute();
             // Create a progressdialog
             mProgressDialog = new ProgressDialog(Gallery_Activity.this);
-            // Set progressdialog title
-            mProgressDialog.setTitle("Android JSON Parse Tutorial");
+
             // Set progressdialog message
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
@@ -142,13 +141,11 @@ public class Gallery_Activity extends AppCompatActivity
                     String pic=imagejson.getString("source_url");
 
 
-                    Log.i("kingsukmajumder",jsonObject.toString());
-                    JSONObject titlejson=jsonObject.getJSONObject("title");
-                    String title=titlejson.getString("rendered");
+                    JSONObject contentsingleitemjson=jsonObject.getJSONObject("content");
+                    String contentsingleitem=contentsingleitemjson.getString("rendered");
 
-                    JSONObject contentjson=jsonObject.getJSONObject("content");
-                    String content=contentjson.getString("rendered");
-                    String contenthtml= Html.fromHtml(content).toString();
+                    Log.i("kingsukmajumder",contentsingleitem);
+
 
 
                   /*  JSONObject imagejson=jsonObject.getJSONObject("better_featured_image");
@@ -160,10 +157,10 @@ public class Gallery_Activity extends AppCompatActivity
 
 
                    map.put("flag", pic);
+                    map.put("country", contentsingleitem);
 
-                   map.put("title", title);
 
-                  map.put("multitext", contenthtml);
+
 
 
 
@@ -206,7 +203,7 @@ public class Gallery_Activity extends AppCompatActivity
         @Override
         protected void onPostExecute(Void args) {
             // Locate the listview in listview_main.xml
-            listview = (ListView) findViewById(R.id.listview_gallery);
+            listview = (ListView) findViewById(R.id.gallerylistview);
             // Pass the results into ListViewAdapter.java
             adapter = new ListViewAdapter(Gallery_Activity.this, arraylist);
             // Set the adapter to the ListView
