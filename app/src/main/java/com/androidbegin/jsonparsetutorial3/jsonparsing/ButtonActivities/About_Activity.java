@@ -1,9 +1,13 @@
 package com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities;
 
 
+import android.content.pm.ActivityInfo;
+import android.graphics.Point;
+import android.os.AsyncTask;
 import android.support.design.widget.NavigationView;
 
 import android.support.v4.view.GravityCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,18 +16,26 @@ import android.os.Bundle;
 
 
 import android.support.v7.widget.Toolbar;
+import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Surface;
+import android.webkit.WebView;
 
 
 import com.androidbegin.jsonparsetutorial3.R;
+import com.astuetz.PagerSlidingTabStrip;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class About_Activity extends AppCompatActivity
 
         implements NavigationView.OnNavigationItemSelectedListener{
 
-
+    private static String urlString;
+    String rendered;
 
 
     @Override
@@ -32,11 +44,9 @@ public class About_Activity extends AppCompatActivity
         setContentView(R.layout.activity_about_);
 
 
-        if (savedInstanceState == null) {
 
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.menucontainer,new Aboutmenu_Frag()).commit();
-        }//if
+
+
 
 
 
@@ -60,17 +70,81 @@ public class About_Activity extends AppCompatActivity
 
 
 
+
+        Display display = getWindowManager().getDefaultDisplay();
+        int rotation = display.getRotation();
+
+        Point size = new Point();
+        display.getSize(size);
+
+
+        int lock = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+
+        if (rotation == Surface.ROTATION_0
+                || rotation == Surface.ROTATION_180) {
+            // if rotation is 0 or 180 and width is greater than height, we have
+            // a tablet
+            if (size.x > size.y) {
+                if (rotation == Surface.ROTATION_0) {
+                    lock = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+                } else {
+                    lock = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+                }
+            } else {
+                // we have a phone
+                if (rotation == Surface.ROTATION_0) {
+                    lock = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+
+                    // Get the ViewPager and set it's PagerAdapter so that it can display items
+                    ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+                    viewPager.setAdapter(new AboutSampleFragmentPagerAdapter(getSupportFragmentManager()));
+
+                    // Give the PagerSlidingTabStrip the ViewPager
+                    PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+                    // Attach the view pager to the tab strip
+                    tabsStrip.setViewPager(viewPager);
+
+                } else {
+                    lock = ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
+                }
+            }
+        }
+
+
+        else {
+            // if rotation is 90 or 270 and width is greater than height, we
+            // have a phone
+            if (size.x > size.y) {
+                if (rotation == Surface.ROTATION_90) {
+                    lock = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
+
+                    // Get the ViewPager and set it's PagerAdapter so that it can display items
+                    ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+                    viewPager.setAdapter(new AboutSampleFragmentPagerAdapter(getSupportFragmentManager()));
+
+                    // Give the PagerSlidingTabStrip the ViewPager
+                    PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
+                    // Attach the view pager to the tab strip
+                    tabsStrip.setViewPager(viewPager);
+
+                } else {
+                    lock = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
+                }
+            } else {
+                // we have a tablet
+                if (rotation == Surface.ROTATION_90) {
+                    lock = ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
+                } else {
+                    lock = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+                }
+            }
+        }
+
+
+
+
+
     }//oncreate
-
-
-
-
-
-
-
-
-
-
 
 
 

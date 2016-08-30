@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+
+
+
+
+
+    tools:context=".Homepage_titlimobile"
+  >
+
+
+
+
+
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="blogbtn"
+            android:id="@+id/blogbtn"
+            android:layout_marginBottom="53dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toLeftOf="@+id/gallerybtn"
+            android:layout_toStartOf="@+id/gallerybtn" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gallerybtn"
+            android:id="@+id/gallerybtn"
+            android:layout_alignTop="@+id/blogbtn"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="news"
+            android:id="@+id/newsbtn"
+            android:layout_alignTop="@+id/blogbtn"
+            android:layout_toLeftOf="@+id/blogbtn"
+            android:layout_toStartOf="@+id/blogbtn" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="about"
+            android:id="@+id/aboutbtn"
+            android:layout_alignBottom="@+id/newsbtn"
+            android:layout_toLeftOf="@+id/newsbtn"
+            android:layout_toStartOf="@+id/newsbtn" />
+
+
+</RelativeLayout>
+

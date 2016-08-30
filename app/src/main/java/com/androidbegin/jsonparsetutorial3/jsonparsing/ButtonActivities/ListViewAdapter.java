@@ -6,20 +6,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.webkit.WebView;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 
 import android.widget.ImageView;
+
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.androidbegin.jsonparsetutorial3.R;
-import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.Blog_Activity;
-import com.androidbegin.jsonparsetutorial3.jsonparsing.ImageLoader;
-import com.androidbegin.jsonparsetutorial3.jsonparsing.SingleItemView;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader.ImageLoader;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.Singleitems.SingleItemView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.IllegalFormatCodePointException;
 
 public class ListViewAdapter extends BaseAdapter {
 
@@ -74,10 +75,32 @@ public class ListViewAdapter extends BaseAdapter {
 	title = (TextView) itemView.findViewById(R.id.title);
 		date = (TextView) itemView.findViewById(R.id.date);
 		multitext = (TextView) itemView.findViewById(R.id.multitext);
-
+RelativeLayout linearLayout=(RelativeLayout) itemView.findViewById(R.id.blog_Relativelayout);
 
 		// Locate the ImageView in listview_item.xml
 		flag = (ImageView) itemView.findViewById(R.id.flag);
+
+
+
+
+		if ((position % 2)==0)
+		{
+
+			Animation animation;
+			animation = AnimationUtils.loadAnimation(itemView.getContext(),
+					R.anim.move);
+			linearLayout.startAnimation(animation);
+		}
+
+
+		else {
+
+			Animation animation;
+			animation = AnimationUtils.loadAnimation(itemView.getContext(),
+					R.anim.reverse_move);
+			linearLayout.startAnimation(animation);
+
+		}
 
 
 		// Capture position and set results to the TextViews
@@ -110,7 +133,7 @@ public class ListViewAdapter extends BaseAdapter {
 				resultp = data.get(position);
 				Intent intent = new Intent(context, SingleItemView.class);
 				// Pass all data rank
-				intent.putExtra("rank1", resultp.get(Blog_Activity.TITLE));
+			/*	intent.putExtra("rank1", resultp.get(Blog_Activity.TITLE));
 				// Pass all data country
 				intent.putExtra("country1", resultp.get(Blog_Activity.COUNTRY));
 				// Pass all data population
@@ -119,7 +142,7 @@ public class ListViewAdapter extends BaseAdapter {
 				intent.putExtra("flag", resultp.get(Blog_Activity.FLAG));
 
 
-			//	intent.putExtra("title1", resultp.get(Blog_Activity.TITLE));
+			//	intent.putExtra("title1", resultp.get(Blog_Activity.TITLE));   */
 
 
 

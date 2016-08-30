@@ -1,4 +1,4 @@
-package com.androidbegin.jsonparsetutorial3.jsonparsing;
+package com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader;
 import java.io.InputStream;
 import java.io.OutputStream;
 

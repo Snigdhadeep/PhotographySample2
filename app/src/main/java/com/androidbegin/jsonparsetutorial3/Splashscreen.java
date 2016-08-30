@@ -15,7 +15,7 @@ public class Splashscreen extends Activity {
         int secondsDelayed = 1;
         new Handler().postDelayed(new Runnable() {
             public void run() {
-                startActivity(new Intent(Splashscreen.this, Homepage.class));
+                startActivity(new Intent(Splashscreen.this, Homepage_titlimobile.class));
                 finish();
             }
         }, secondsDelayed * 1000);

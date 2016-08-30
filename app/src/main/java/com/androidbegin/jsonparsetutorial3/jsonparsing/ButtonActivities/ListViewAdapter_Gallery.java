@@ -6,13 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+
 import com.androidbegin.jsonparsetutorial3.R;
-import com.androidbegin.jsonparsetutorial3.jsonparsing.ImageLoader;
-import com.androidbegin.jsonparsetutorial3.jsonparsing.SingleItemView;
+
+import com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader.ImageLoader;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.Singleitems.SingleItemView_Gallery;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -69,9 +75,28 @@ public class ListViewAdapter_Gallery extends BaseAdapter {
 
 		// Locate the ImageView in listview_item.xml
 		flag = (ImageView) itemView.findViewById(R.id.imageViewgallery);
+		RelativeLayout gallery_layout=(RelativeLayout) itemView.findViewById(R.id.gallery_Relativelayout);
 
 
+		if ((position % 2)==0)
+		{
 
+			Animation animation;
+			animation = AnimationUtils.loadAnimation(itemView.getContext(),
+					R.anim.move);
+			gallery_layout.startAnimation(animation);
+
+		}
+
+
+		else {
+
+			Animation animation;
+			animation = AnimationUtils.loadAnimation(itemView.getContext(),
+					R.anim.reverse_move);
+			gallery_layout.startAnimation(animation);
+
+		}
 
 
 
@@ -90,6 +115,7 @@ public class ListViewAdapter_Gallery extends BaseAdapter {
 		// Passes flag images URL into ImageLoader.class
 		//imageLoader.DisplayImage(resultp.get(Blog_Activity.FLAG), flag1);
 		imageLoader.DisplayImage(resultp.get(Gallery_Activity.FLAG), flag);
+
 		// Capture ListView item click
 		itemView.setOnClickListener(new OnClickListener() {
 
@@ -97,17 +123,19 @@ public class ListViewAdapter_Gallery extends BaseAdapter {
 			public void onClick(View arg0) {
 				// Get the position
 				resultp = data.get(position);
-				Intent intent = new Intent(context, SingleItemView.class);
+
+
+				Intent intent = new Intent(context,SingleItemView_Gallery.class);
 				// Pass all data rank
-				intent.putExtra("rank", resultp.get(Gallery_Activity.RANK));
+				//intent.putExtra("rank", resultp.get(Gallery_Activity.RANK));
 				// Pass all data country
-				intent.putExtra("country2", resultp.get(Gallery_Activity.COUNTRY));
+			//	intent.putExtra("country2", resultp.get(Gallery_Activity.COUNTRY));
 				// Pass all data population
-				intent.putExtra("population",resultp.get(Gallery_Activity.POPULATION));
+				//intent.putExtra("population",resultp.get(Gallery_Activity.POPULATION));
 				// Pass all data flag
-				intent.putExtra("flag", resultp.get(Gallery_Activity.FLAG));
+				intent.putExtra("flag",resultp.get(Gallery_Activity.FLAG));
 				// Start SingleItemView Class
-				intent.putExtra("title", resultp.get(Gallery_Activity.TITLE));
+			//	intent.putExtra("title",resultp.get(Gallery_Activity.TITLE));*/
 
 
 

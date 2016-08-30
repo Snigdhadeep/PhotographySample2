@@ -1,32 +1,31 @@
 package com.androidbegin.jsonparsetutorial3;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
-
 import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.About_Activity;
 import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.Blog_Activity;
 import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.Gallery_Activity;
 import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.News_Activity;
 
-public class Homepage extends AppCompatActivity {
+public class Homepage_titlimobile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.homepage);
+        setContentView(R.layout.homepage_titlimobile);
 
 
-       ImageView rotateImage;
+     /*  ImageView rotateImage;
         rotateImage = (ImageView) findViewById(R.id.cameraicon);
         Animation startRotateAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.move);
-        rotateImage.startAnimation(startRotateAnimation);
+        rotateImage.startAnimation(startRotateAnimation);*/
 
         getIntent();
 

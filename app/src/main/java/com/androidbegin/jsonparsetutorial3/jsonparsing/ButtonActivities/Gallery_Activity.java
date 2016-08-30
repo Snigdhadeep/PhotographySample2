@@ -40,7 +40,7 @@ public class Gallery_Activity extends AppCompatActivity
     JSONObject jsonobject;
     JSONArray jsonarray;
     ListView listview;
-    ListViewAdapter adapter;
+    ListViewAdapter_Gallery adapter;
     ProgressDialog mProgressDialog;
     ArrayList<HashMap<String, String>> arraylist;
     static String RANK = "rank";
@@ -137,14 +137,12 @@ public class Gallery_Activity extends AppCompatActivity
 
                     JSONObject jsonObject = jsonArray.getJSONObject(i);  // get jsonObject @ i position
                     //System.out.println("jsonObject " + i + ": " + jsonObject);
-                    JSONObject imagejson=jsonObject.getJSONObject("better_featured_image");
-                    String pic=imagejson.getString("source_url");
+                    JSONObject imagejson=jsonObject.getJSONObject("acf");
+                    String pic=imagejson.getString("display_pic");
 
 
-                    JSONObject contentsingleitemjson=jsonObject.getJSONObject("content");
-                    String contentsingleitem=contentsingleitemjson.getString("rendered");
 
-                    Log.i("kingsukmajumder",contentsingleitem);
+                    Log.i("snigdhadeep",pic);
 
 
 
@@ -157,7 +155,7 @@ public class Gallery_Activity extends AppCompatActivity
 
 
                    map.put("flag", pic);
-                    map.put("country", contentsingleitem);
+                   // map.put("country", contentsingleitem);
 
 
 
@@ -205,7 +203,7 @@ public class Gallery_Activity extends AppCompatActivity
             // Locate the listview in listview_main.xml
             listview = (ListView) findViewById(R.id.gallerylistview);
             // Pass the results into ListViewAdapter.java
-            adapter = new ListViewAdapter(Gallery_Activity.this, arraylist);
+            adapter = new ListViewAdapter_Gallery(Gallery_Activity.this, arraylist);
             // Set the adapter to the ListView
             listview.setAdapter(adapter);
             // Close the progressdialog

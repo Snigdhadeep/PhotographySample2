@@ -41,8 +41,8 @@ public class News_Activity extends AppCompatActivity
 
 
 
-        WebView webViewcontent=(WebView)findViewById(R.id.webView_news);
-        webViewcontent.loadData(rendered, "text/html", null);
+      //  WebView webViewcontent=(WebView)findViewById(R.id.webView_news);
+     //   webViewcontent.loadData(rendered, "text/html", null);
 
 
                 urlString = "http://parthaphotography.com/wp-json/wp/v2/pages/1075";
@@ -72,7 +72,7 @@ public class News_Activity extends AppCompatActivity
 
 
 
-            private class ProcessJSON extends AsyncTask<String, Void, String>{
+             class ProcessJSON extends AsyncTask<String, Void, String>{
                 protected String doInBackground(String... strings){
                     String stream = null;
                     String urlString = strings[0];

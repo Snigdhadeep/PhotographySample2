@@ -1,18 +1,20 @@
-package com.androidbegin.jsonparsetutorial3.jsonparsing;
+package com.androidbegin.jsonparsetutorial3.jsonparsing.Singleitems;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.webkit.WebView;
+import android.util.Log;
+import android.widget.ImageView;
 
 import com.androidbegin.jsonparsetutorial3.R;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader.ImageLoader;
 
 public class SingleItemView_Gallery extends Activity {
 	// Declare Variables
 	String rank;
 	String country;
 	String population;
-	String flag;
+	String flagnew;
 	String content;
 	String position;
 	ImageLoader imageLoader = new ImageLoader(this);
@@ -20,10 +22,18 @@ public class SingleItemView_Gallery extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// Get the view from singleitemview.xml
-		setContentView(R.layout.singleitemview);
+		// Get the view from singleitemview_blog.xmlg.xml
+		setContentView(R.layout.singleitemview_gallery);
 
 		Intent i = getIntent();
+
+
+		flagnew=i.getStringExtra("flag");
+		ImageView img=(ImageView)findViewById(R.id.flag_gallery) ;
+
+		Log.i("snigdhadeep2",flagnew);
+
+		imageLoader.DisplayImage(flagnew,img);
 		// Get the result of rank
 		//rank = i.getStringExtra("rank1");
 		// Get the result of country
@@ -34,15 +44,17 @@ public class SingleItemView_Gallery extends Activity {
 	//	flag = i.getStringExtra("flag");
 
 
+/*
+		flag = i.getStringExtra("flag");
+		ImageView singleimagegallery=(ImageView)findViewById(R.id.singleimageViewgallery);
+		// Passes flag images URL into ImageLoader.class
+			imageLoader.DisplayImage(flag, singleimagegallery);
 
-		country = i.getStringExtra("country2");
 
-		WebView webViewcontent=(WebView)findViewById(R.id.webView_blogcontent);
-		webViewcontent.loadData(country, "text/html", null);
+		Log.i("snigdhadeep2",flag);*/
 
 
-
-		// Locate the TextViews in singleitemview.xml
+		// Locate the TextViews in singleitemview_blog.xmlg.xml
 	//	TextView txtrank = (TextView) findViewById(R.id.title);
 		//TextView txtcountry = (TextView) findViewById(R.id.multitext);
 
@@ -52,7 +64,7 @@ public class SingleItemView_Gallery extends Activity {
 
 		//	webViewcontent.loadData(content, "text/html", "UTF-8");
 
-		// Locate the ImageView in singleitemview.xml
+		// Locate the ImageView in singleitemview_blog_blog.xml
 		//ImageView imgflag = (ImageView) findViewById(R.id.flag);
 
 

@@ -1,4 +1,4 @@
-package com.androidbegin.jsonparsetutorial3.jsonparsing;
+package com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader;
 
 import android.graphics.Bitmap;
 import android.util.Log;

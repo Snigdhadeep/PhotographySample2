@@ -3,9 +3,34 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageViewgallery"
-        android:layout_gravity="center_horizontal" />
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:id="@+id/gallery_Relativelayout"
+
+        android:layout_gravity="center"
+        android:background="@drawable/rectanglular_shape"
+        android:weightSum="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageViewgallery"
+            android:adjustViewBounds="true"
+
+            />
+    </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
+
+
+
+
+
+
+
+

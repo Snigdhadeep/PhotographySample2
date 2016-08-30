@@ -1,4 +1,4 @@
-package com.androidbegin.jsonparsetutorial3.jsonparsing;
+package com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader;
 
 import android.app.Activity;
 import android.app.ProgressDialog;

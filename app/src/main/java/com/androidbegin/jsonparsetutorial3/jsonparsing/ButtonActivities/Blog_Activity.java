@@ -13,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ListView;
 
 import com.androidbegin.jsonparsetutorial3.R;
@@ -81,6 +83,11 @@ public class Blog_Activity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+
+
+
 
 
     }//oncreate
@@ -163,7 +170,7 @@ public class Blog_Activity extends AppCompatActivity
                     JSONObject contentsingleitemjson=jsonObject.getJSONObject("content");
                     String contentsingleitem=contentsingleitemjson.getString("rendered");
 
-                    Log.i("kingsukmajumder",contentsingleitem);
+                  //  Log.i("kingsukmajumder",contentsingleitem);
 
                     map.put("flag", pic);
 

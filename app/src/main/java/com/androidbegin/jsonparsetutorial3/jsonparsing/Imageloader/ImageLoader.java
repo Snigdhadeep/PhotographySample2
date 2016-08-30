@@ -1,4 +1,4 @@
-package com.androidbegin.jsonparsetutorial3.jsonparsing;
+package com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.widget.ImageView;
 
 import com.androidbegin.jsonparsetutorial3.R;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.AboutBook_frag;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -39,6 +40,8 @@ public class ImageLoader {
 	}
 
 	final int stub_id = R.drawable.temp_img;
+
+
 
 	public void DisplayImage(String url, ImageView imageView) {
 		imageViews.put(imageView, url);
@@ -99,7 +102,7 @@ public class ImageLoader {
 
 			// Find the correct scale value. It should be the power of 2.
 			// Recommended Size 512
-			final int REQUIRED_SIZE = 70;
+			final int REQUIRED_SIZE = 512;
 			int width_tmp = o.outWidth, height_tmp = o.outHeight;
 			int scale = 1;
 			while (true) {

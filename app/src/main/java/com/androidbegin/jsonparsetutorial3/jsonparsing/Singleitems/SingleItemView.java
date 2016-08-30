@@ -1,16 +1,13 @@
-package com.androidbegin.jsonparsetutorial3.jsonparsing;
+package com.androidbegin.jsonparsetutorial3.jsonparsing.Singleitems;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.androidbegin.jsonparsetutorial3.R;
-import com.androidbegin.jsonparsetutorial3.jsonparsing.ImageLoader;
-
-import java.util.HashMap;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader.ImageLoader;
 
 public class SingleItemView extends Activity {
 	// Declare Variables
@@ -27,8 +24,8 @@ public class SingleItemView extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// Get the view from singleitemview.xml
-		setContentView(R.layout.singleitemview);
+		// Get the view from singleitemview_blog_blog.xml
+		setContentView(R.layout.singleitemview_blog);
 
 		Intent i = getIntent();
 		// Get the result of rank
@@ -49,7 +46,7 @@ public class SingleItemView extends Activity {
 
 
 
-		// Locate the TextViews in singleitemview.xml
+		// Locate the TextViews in singleitemview_blog.xmlg.xml
 	//	TextView txtrank = (TextView) findViewById(R.id.title);
 		//TextView txtcountry = (TextView) findViewById(R.id.multitext);
 
@@ -59,7 +56,7 @@ public class SingleItemView extends Activity {
 
 		//	webViewcontent.loadData(content, "text/html", "UTF-8");
 
-		// Locate the ImageView in singleitemview.xml
+		// Locate the ImageView in singleitemview_blog.xmlg.xml
 		//ImageView imgflag = (ImageView) findViewById(R.id.flag);
 
 
@@ -71,6 +68,6 @@ public class SingleItemView extends Activity {
 
 		// Capture position and set results to the ImageView
 		// Passes flag images URL into ImageLoader.class
-	//	imageLoader.DisplayImage(flag, imgflag);
+		//imageLoader.DisplayImage(flag, imgflag);
 	}
 }

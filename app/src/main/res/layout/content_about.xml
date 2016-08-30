@@ -1,50 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/background_with_shadow"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".jsonparsing.ButtonActivities.About_Activity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
     >
 
-<RelativeLayout
+
+<ScrollView
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="462dp"
+        android:background="@android:color/white"
 
-    <fragment android:name="com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.Aboutmenu_Frag"
-        android:id="@+id/menucontainer"
-        android:layout_width="fill_parent"
-        android:layout_height="80dp"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="60dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
-    <fragment android:name="com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.AboutMe_frag"
-        android:id="@+id/aboutus_frag"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/menucontainer"
-        />
-
-    <fragment android:name="com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.AboutEquip_frag"
-        android:id="@+id/equip_frag"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/menucontainer"
-        />
-
-    <fragment android:name="com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.AboutBook_frag"
-        android:id="@+id/book_frag"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/menucontainer"
         />
 
 
-</RelativeLayout>
+    <com.astuetz.PagerSlidingTabStrip
+        android:id="@+id/tabs"
+        app:pstsShouldExpand="true"
+        app:pstsTextAllCaps="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@id/viewpager"
+
+
+        />
+
+    </RelativeLayout>
+</ScrollView>
+
 </RelativeLayout>
