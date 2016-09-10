@@ -1,6 +1,7 @@
 package com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -45,12 +46,10 @@ public class Blog_Activity extends AppCompatActivity
     ProgressDialog mProgressDialog;
     ArrayList<HashMap<String, String>> arraylist;
 
-    static String COUNTRY = "country";
+
 
     static String FLAG = "flag";
-
     static String TITLE = "title";
-
     static String MULTITEXT= "multitext";
     static String CONTENT="content";
 
@@ -109,6 +108,8 @@ public class Blog_Activity extends AppCompatActivity
             // Set progressdialog message
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
             // Show progressdialog
             mProgressDialog.show();
         }
@@ -178,7 +179,7 @@ public class Blog_Activity extends AppCompatActivity
 
                     map.put("multitext", contenthtml);
 
-                    map.put("country",contentsingleitem);
+                    map.put("content",contentsingleitem);
 
 
 
@@ -284,17 +285,23 @@ public class Blog_Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_about) {
+
+            Intent i=new Intent(this,About_Activity.class);
+            startActivity(i);
+
+        } else if (id == R.id.nav_news) {
+            Intent i=new Intent(this,News_Activity.class);
+            startActivity(i);
+
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+            Intent i=new Intent(this,Gallery_Activity.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_contact) {
 
-        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
 
         }
 

@@ -4,8 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/main_content"
     android:fitsSystemWindows="true"
     tools:context=".jsonparsing.ButtonActivities.About_Activity">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -23,7 +40,6 @@
         android:background="#10000000"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
 
 
 

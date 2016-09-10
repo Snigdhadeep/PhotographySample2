@@ -7,7 +7,6 @@ import android.os.Handler;
 import android.widget.ImageView;
 
 import com.androidbegin.jsonparsetutorial3.R;
-import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.AboutBook_frag;
 
 import java.io.File;
 import java.io.FileInputStream;

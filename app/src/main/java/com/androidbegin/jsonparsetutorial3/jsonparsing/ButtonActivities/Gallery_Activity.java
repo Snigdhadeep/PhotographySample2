@@ -1,6 +1,7 @@
 package com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -45,11 +46,11 @@ public class Gallery_Activity extends AppCompatActivity
     ArrayList<HashMap<String, String>> arraylist;
     static String RANK = "rank";
     static String COUNTRY = "country";
-    static String POPULATION = "population";
+    static String LIFESTORY = "lifestory";
     static String FLAG = "flag";
 
-    static String TITLE = "title";
-    static String DATE = "date";
+    static String FUNFACTS = "funfacts";
+    static String HABITATE = "habitate";
     static String MULTITEXT= "multitext2";
 
 
@@ -96,6 +97,8 @@ public class Gallery_Activity extends AppCompatActivity
             // Set progressdialog message
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.setCanceledOnTouchOutside(false);
             // Show progressdialog
             mProgressDialog.show();
         }
@@ -134,15 +137,25 @@ public class Gallery_Activity extends AppCompatActivity
 
                 for(int i=0 ; i< count; i++){   // iterate through jsonArray
                     HashMap<String, String> map = new HashMap<String, String>();
-
+                    // fetching images for  gallery and  single gallery
                     JSONObject jsonObject = jsonArray.getJSONObject(i);  // get jsonObject @ i position
                     //System.out.println("jsonObject " + i + ": " + jsonObject);
                     JSONObject imagejson=jsonObject.getJSONObject("acf");
                     String pic=imagejson.getString("display_pic");
 
+                     //fetching content for single gallery
+
+                    //for  lifestory in  tab1
+                    String lifestory=imagejson.getString("life_story");
+                    //for habitant and food in  tab2
+                    String habitat=imagejson.getString("habitat_and_food");
+                    //for fun facts in tab3
+                    String fun_facts=imagejson.getString("fun_facts");
 
 
-                    Log.i("snigdhadeep",pic);
+                    Log.i("diku",lifestory);
+                    Log.i("diku2",habitat);
+                    Log.i("diku3",fun_facts);
 
 
 
@@ -154,8 +167,10 @@ public class Gallery_Activity extends AppCompatActivity
 
 
 
-                   map.put("flag", pic);
-                   // map.put("country", contentsingleitem);
+                    map.put("flag", pic);
+                    map.put("lifestory", lifestory);
+                    map.put("funfacts", fun_facts);
+                    map.put("habitate",habitat);
 
 
 
@@ -263,17 +278,19 @@ public class Gallery_Activity extends AppCompatActivity
                 // Handle navigation view item clicks here.
                 int id = item.getItemId();
 
-                if (id == R.id.nav_camera) {
-                    // Handle the camera action
-                } else if (id == R.id.nav_gallery) {
+                if (id == R.id.nav_about) {
+                    Intent i=new Intent(this,About_Activity.class);
+                    startActivity(i);
 
-                } else if (id == R.id.nav_slideshow) {
+                } else if (id == R.id.nav_news) {
+                    Intent i=new Intent(this,News_Activity.class);
+                    startActivity(i);
 
-                } else if (id == R.id.nav_manage) {
+                } else if (id == R.id.nav_blog) {
+                    Intent i=new Intent(this,Blog_Activity.class);
+                    startActivity(i);
 
-                } else if (id == R.id.nav_share) {
-
-                } else if (id == R.id.nav_send) {
+                } else if (id == R.id.nav_contact) {
 
                 }
 

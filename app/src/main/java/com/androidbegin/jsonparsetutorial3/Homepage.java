@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 
-import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.About_Activity;
+import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.About_Tab1;
 import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.Blog_Activity;
 import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.Gallery_Activity;
 import com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities.News_Activity;
@@ -61,7 +61,7 @@ public class Homepage extends AppCompatActivity {
         about_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getApplicationContext(),About_Activity.class);
+                Intent intent=new Intent(getApplicationContext(),About_Tab1.class);
                 startActivity(intent);
             }
         });

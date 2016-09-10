@@ -1,6 +1,7 @@
 package com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -32,6 +33,7 @@ public class News_Activity extends AppCompatActivity
 
     private static String urlString;
     String rendered;
+
 
     ProgressDialog mProgressDialog;
     @Override
@@ -73,6 +75,25 @@ public class News_Activity extends AppCompatActivity
 
 
              class ProcessJSON extends AsyncTask<String, Void, String>{
+
+
+
+                 protected void onPreExecute() {
+                     super.onPreExecute();
+                     // Create a progressdialog
+                     mProgressDialog = new ProgressDialog(News_Activity.this);
+
+                     // Set progressdialog message
+                     mProgressDialog.setMessage("Please wait...");
+                     mProgressDialog.setIndeterminate(false);
+                     mProgressDialog.setCancelable(false);
+                     mProgressDialog.setCanceledOnTouchOutside(false);
+                     // Show progressdialog
+                     mProgressDialog.show();
+                 }
+
+
+
                 protected String doInBackground(String... strings){
                     String stream = null;
                     String urlString = strings[0];
@@ -120,6 +141,8 @@ public class News_Activity extends AppCompatActivity
                         }
 
                     } // if statement end
+                    // Close the progressdialog
+                    mProgressDialog.dismiss();
                 } // onPostExecute() end
             } // ProcessJSON class end
 
@@ -171,20 +194,21 @@ public class News_Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_about) {
+            Intent i=new Intent(this,About_Activity.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_slideshow) {
+        }  else if (id == R.id.nav_gallery) {
+            Intent i=new Intent(this,Gallery_Activity.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_blog) {
+            Intent i=new Intent(this,Blog_Activity.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_contact) {
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

@@ -11,13 +11,9 @@ import com.androidbegin.jsonparsetutorial3.jsonparsing.Imageloader.ImageLoader;
 
 public class SingleItemView extends Activity {
 	// Declare Variables
-	String rank;
-	String country;
-	String population;
-	String flag;
+
+
 	String content;
-	String position;
-	ImageLoader imageLoader = new ImageLoader(this);
 
 
 
@@ -28,21 +24,11 @@ public class SingleItemView extends Activity {
 		setContentView(R.layout.singleitemview_blog);
 
 		Intent i = getIntent();
-		// Get the result of rank
-		//rank = i.getStringExtra("rank1");
-		// Get the result of country
 
-		// Get the result of population
-	//	population = i.getStringExtra("population1");
-		// Get the result of flag
-	//	flag = i.getStringExtra("flag");
-
-
-
-		country = i.getStringExtra("country1");
+		content = i.getStringExtra("content");
 
 		WebView webViewcontent=(WebView)findViewById(R.id.webView_blogcontent);
-		webViewcontent.loadData(country, "text/html", null);
+		webViewcontent.loadData(content, "text/html", null);
 
 
 

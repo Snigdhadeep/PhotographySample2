@@ -72,10 +72,12 @@ public class ListViewAdapter extends BaseAdapter {
 		resultp = data.get(position);
 
 		// Locate the TextViews in listview_item.xml
-	title = (TextView) itemView.findViewById(R.id.title);
-		date = (TextView) itemView.findViewById(R.id.date);
+	    title = (TextView) itemView.findViewById(R.id.title);
 		multitext = (TextView) itemView.findViewById(R.id.multitext);
-RelativeLayout linearLayout=(RelativeLayout) itemView.findViewById(R.id.blog_Relativelayout);
+
+
+
+		RelativeLayout linearLayout=(RelativeLayout) itemView.findViewById(R.id.blog_Relativelayout);
 
 		// Locate the ImageView in listview_item.xml
 		flag = (ImageView) itemView.findViewById(R.id.flag);
@@ -134,7 +136,7 @@ RelativeLayout linearLayout=(RelativeLayout) itemView.findViewById(R.id.blog_Rel
 				Intent intent = new Intent(context, SingleItemView.class);
 				// Pass all data rank
 			/*	intent.putExtra("rank1", resultp.get(Blog_Activity.TITLE));
-				// Pass all data country
+				Pass all data country
 				intent.putExtra("country1", resultp.get(Blog_Activity.COUNTRY));
 				// Pass all data population
 
@@ -145,7 +147,7 @@ RelativeLayout linearLayout=(RelativeLayout) itemView.findViewById(R.id.blog_Rel
 			//	intent.putExtra("title1", resultp.get(Blog_Activity.TITLE));   */
 
 
-
+				intent.putExtra("content", resultp.get(Blog_Activity.CONTENT));
 
 
 				context.startActivity(intent);

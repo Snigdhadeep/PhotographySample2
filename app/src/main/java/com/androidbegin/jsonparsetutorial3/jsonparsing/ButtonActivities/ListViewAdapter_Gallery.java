@@ -2,6 +2,7 @@ package com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -126,12 +127,12 @@ public class ListViewAdapter_Gallery extends BaseAdapter {
 
 
 				Intent intent = new Intent(context,SingleItemView_Gallery.class);
-				// Pass all data rank
-				//intent.putExtra("rank", resultp.get(Gallery_Activity.RANK));
-				// Pass all data country
-			//	intent.putExtra("country2", resultp.get(Gallery_Activity.COUNTRY));
-				// Pass all data population
-				//intent.putExtra("population",resultp.get(Gallery_Activity.POPULATION));
+				// Pass all data lifestory
+				intent.putExtra("lifestory", resultp.get(Gallery_Activity.LIFESTORY));
+				// Pass all data funfacts
+				intent.putExtra("funfacts", resultp.get(Gallery_Activity.FUNFACTS));
+				// Pass all data habitat
+				intent.putExtra("habitat",resultp.get(Gallery_Activity.HABITATE));
 				// Pass all data flag
 				intent.putExtra("flag",resultp.get(Gallery_Activity.FLAG));
 				// Start SingleItemView Class

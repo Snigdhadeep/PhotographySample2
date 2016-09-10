@@ -1,37 +1,34 @@
 package com.androidbegin.jsonparsetutorial3.jsonparsing.ButtonActivities;
 
 
-import android.content.pm.ActivityInfo;
-import android.graphics.Point;
+
+import android.app.TabActivity;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.design.widget.NavigationView;
 
 import android.support.v4.view.GravityCompat;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 
-
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Surface;
 import android.webkit.WebView;
+import android.widget.TabHost;
+import android.widget.TabHost.TabSpec;
 
 
 import com.androidbegin.jsonparsetutorial3.R;
-import com.astuetz.PagerSlidingTabStrip;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class About_Activity extends AppCompatActivity
-
+public class About_Activity extends TabActivity
         implements NavigationView.OnNavigationItemSelectedListener{
 
     private static String urlString;
@@ -49,15 +46,16 @@ public class About_Activity extends AppCompatActivity
 
 
 
-
-
         //for toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+       // setSupportActionBar(toolbar);
 
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+
+              DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this,drawer,toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -69,82 +67,89 @@ public class About_Activity extends AppCompatActivity
 
 
 
+        // create the TabHost that will contain the Tabs
+        TabHost tabHost = (TabHost)findViewById(android.R.id.tabhost);
 
 
-        Display display = getWindowManager().getDefaultDisplay();
-        int rotation = display.getRotation();
+        TabSpec tab1 = tabHost.newTabSpec("First Tab");
+        TabSpec tab2 = tabHost.newTabSpec("Second Tab");
+        TabSpec tab3 = tabHost.newTabSpec("Third Tab");
 
-        Point size = new Point();
-        display.getSize(size);
+        tab1.setIndicator("Tab1");
+        tab1.setContent(new Intent(this,About_Tab1.class));
 
+        tab2.setIndicator("Tab2");
+        tab2.setContent(new Intent(this,About_Tab2.class));
 
-        int lock = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+        tab3.setIndicator("Tab3");
+        tab3.setContent(new Intent(this,About_Tab3.class));
 
-        if (rotation == Surface.ROTATION_0
-                || rotation == Surface.ROTATION_180) {
-            // if rotation is 0 or 180 and width is greater than height, we have
-            // a tablet
-            if (size.x > size.y) {
-                if (rotation == Surface.ROTATION_0) {
-                    lock = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-                } else {
-                    lock = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-                }
-            } else {
-                // we have a phone
-                if (rotation == Surface.ROTATION_0) {
-                    lock = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
+        /** Add the tabs  to the TabHost to display. */
+        tabHost.addTab(tab1);
+        tabHost.addTab(tab2);
+        tabHost.addTab(tab3);
 
-                    // Get the ViewPager and set it's PagerAdapter so that it can display items
-                    ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-                    viewPager.setAdapter(new AboutSampleFragmentPagerAdapter(getSupportFragmentManager()));
-
-                    // Give the PagerSlidingTabStrip the ViewPager
-                    PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-                    // Attach the view pager to the tab strip
-                    tabsStrip.setViewPager(viewPager);
-
-                } else {
-                    lock = ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-                }
-            }
-        }
-
-
-        else {
-            // if rotation is 90 or 270 and width is greater than height, we
-            // have a phone
-            if (size.x > size.y) {
-                if (rotation == Surface.ROTATION_90) {
-                    lock = ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE;
-
-                    // Get the ViewPager and set it's PagerAdapter so that it can display items
-                    ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
-                    viewPager.setAdapter(new AboutSampleFragmentPagerAdapter(getSupportFragmentManager()));
-
-                    // Give the PagerSlidingTabStrip the ViewPager
-                    PagerSlidingTabStrip tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
-                    // Attach the view pager to the tab strip
-                    tabsStrip.setViewPager(viewPager);
-
-                } else {
-                    lock = ActivityInfo.SCREEN_ORIENTATION_REVERSE_LANDSCAPE;
-                }
-            } else {
-                // we have a tablet
-                if (rotation == Surface.ROTATION_90) {
-                    lock = ActivityInfo.SCREEN_ORIENTATION_REVERSE_PORTRAIT;
-                } else {
-                    lock = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT;
-                }
-            }
-        }
 
 
 
 
 
     }//oncreate
+
+    class ProcessJSON extends AsyncTask<String, Void, String> {
+
+
+
+
+        protected String doInBackground(String... strings){
+            String stream = null;
+            String urlString = strings[0];
+
+            HTTPDataHandler hh = new HTTPDataHandler();
+            stream = hh.GetHTTPData(urlString);
+
+            // Return the data from specified url
+            return stream;
+        }
+
+        protected void onPostExecute(String stream){
+            // TextView tv = (TextView) findViewById(R.id.tv);
+            //tv.setText(stream);
+
+            /*
+                Important in JSON DATA
+                -------------------------
+                * Square bracket ([) represents a JSON array
+                * Curly bracket ({) represents a JSON object
+                * JSON object contains key/value pairs
+                * Each key is a String and value may be different data types
+             */
+
+            //..........Process JSON DATA................
+            if(stream !=null){
+                try{
+                    // Get the full HTTP Data as JSONObject
+
+                    JSONObject reader= new JSONObject(stream);
+                    JSONObject content=reader.getJSONObject("acf");
+                    String rendered=content.getString("tab_1_content_");
+
+                    WebView webViewcontent=(WebView)findViewById(R.id.webView_about_me);
+                    webViewcontent.loadData(rendered, "text/html", null);
+
+
+
+
+
+                    // process other data as this way..............
+
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+
+            } // if statement end
+        } // onPostExecute() end
+    } // ProcessJSON class end
 
 
 
@@ -188,20 +193,25 @@ public class About_Activity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
+        if (id == R.id.nav_news) {
+
+            Intent i=new Intent(this,News_Activity.class);
+            startActivity(i);
+
         } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
+            Intent i=new Intent(this,Gallery_Activity.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_blog) {
+            Intent i=new Intent(this,Blog_Activity.class);
+            startActivity(i);
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_contact) {
 
-        } else if (id == R.id.nav_send) {
+
 
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

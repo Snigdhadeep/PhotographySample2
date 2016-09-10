@@ -8,25 +8,18 @@
     <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-
         android:largeHeap="true"
-
-
-        >
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity
             android:name=".Homepage"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-
         <activity
             android:name=".Homepage_titlimobile"
             android:label="@string/app_name"
@@ -41,7 +34,6 @@
         <activity android:name=".jsonparsing.Imageloader.MainActivity" />
         <activity android:name=".jsonparsing.Singleitems.SingleItemView" />
         <activity android:name=".jsonparsing.Singleitems.SingleItemView_Gallery" />
-
         <activity
             android:name=".jsonparsing.ButtonActivities.Blog_Activity"
             android:configChanges="orientation|screenSize"
@@ -53,20 +45,21 @@
             android:label=""
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-
             android:name=".jsonparsing.ButtonActivities.About_Activity"
             android:configChanges="orientation|screenSize"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar"
-            />
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-
             android:name=".jsonparsing.ButtonActivities.News_Activity"
             android:configChanges="orientation|screenSize"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar"
-            />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".jsonparsing.ButtonActivities.About_Tab1" />
+        <activity android:name=".jsonparsing.ButtonActivities.About_Tab2" />
+        <activity android:name=".jsonparsing.ButtonActivities.About_Tab3" />
+        <activity android:name=".jsonparsing.ButtonActivities.Gallery_Tab1" />
+        <activity android:name=".jsonparsing.ButtonActivities.Gallery_Tab2" />
+        <activity android:name=".jsonparsing.ButtonActivities.Gallery_Tab3"></activity>
     </application>
 
 </manifest>

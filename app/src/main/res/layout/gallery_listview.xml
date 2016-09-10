@@ -8,9 +8,12 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/gallerylistview">
+        android:id="@+id/gallerylistview"
+        android:layout_weight="1">
 
 
     </ListView>
+
+
 
 </LinearLayout>
