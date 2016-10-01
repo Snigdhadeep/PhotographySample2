@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "387726523101",
+    "firebase_url": "https://parthaphotography-4cb28.firebaseio.com",
+    "project_id": "parthaphotography-4cb28",
+    "storage_bucket": "parthaphotography-4cb28.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387726523101:android:1436aca144a0fe66",
+        "android_client_info": {
+          "package_name": "com.techpenta.parthaphotography"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387726523101-fn33lh4ora3u86p98pckbos0c6v4iipl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.techpenta.parthaphotography",
+            "certificate_hash": "760DF53D926621799B303CC4F03FAC948552154B"
+          }
+        },
+        {
+          "client_id": "387726523101-plja7lrrumscb3fqpm26nfd69rqs16ak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7diiVkidBxuCjLrq2CqvD7D_wjhEYulM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "387726523101-plja7lrrumscb3fqpm26nfd69rqs16ak.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
