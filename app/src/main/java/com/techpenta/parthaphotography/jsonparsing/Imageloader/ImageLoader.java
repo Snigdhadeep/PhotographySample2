@@ -6,8 +6,12 @@ import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.widget.ImageView;
 
+import android.util.Base64;
+
+import com.firebase.client.Firebase;
 import com.techpenta.parthaphotography.R;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -23,6 +27,7 @@ import java.util.WeakHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+
 public class ImageLoader {
 
 	MemoryCache memoryCache = new MemoryCache();
@@ -33,6 +38,7 @@ public class ImageLoader {
 	// Handler to display images in UI thread
 	Handler handler = new Handler();
 
+
 	public ImageLoader(Context context) {
 		fileCache = new FileCache(context);
 		executorService = Executors.newFixedThreadPool(5);
@@ -40,7 +46,7 @@ public class ImageLoader {
 
 	final int stub_id = R.drawable.temp_img;
 
-
+Firebase mfirebase;
 
 	public void DisplayImage(String url, ImageView imageView) {
 		imageViews.put(imageView, url);
@@ -90,7 +96,7 @@ public class ImageLoader {
 	}
 
 	// Decodes image and scales it to reduce memory consumption
-	private Bitmap decodeFile(File f) {
+	public Bitmap decodeFile(File f) {
 		try {
 			// Decode image size
 			BitmapFactory.Options o = new BitmapFactory.Options();
@@ -126,6 +132,9 @@ public class ImageLoader {
 		}
 		return null;
 	}
+
+
+
 
 	// Task for the queue
 	private class PhotoToLoad {
@@ -193,5 +202,9 @@ public class ImageLoader {
 		memoryCache.clear();
 		fileCache.clear();
 	}
+
+
+
+
 
 }

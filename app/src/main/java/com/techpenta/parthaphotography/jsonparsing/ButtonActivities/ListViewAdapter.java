@@ -2,6 +2,9 @@ package com.techpenta.parthaphotography.jsonparsing.ButtonActivities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,14 +18,12 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.firebase.client.DataSnapshot;
-import com.firebase.client.FirebaseError;
-import com.firebase.client.ValueEventListener;
 import com.techpenta.parthaphotography.R;
 import com.techpenta.parthaphotography.jsonparsing.Imageloader.ImageLoader;
 import com.techpenta.parthaphotography.jsonparsing.Singleitems.SingleItemView;
 import com.firebase.client.Firebase;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -34,10 +35,6 @@ public class ListViewAdapter extends BaseAdapter {
 	ArrayList<HashMap<String, String>> data;
 	ImageLoader imageLoader;
 	HashMap<String, String> resultp = new HashMap<String, String>();
-
-	Firebase mfirebase;
-
-	boolean animationdone=true;
 
 	public ListViewAdapter(Context context,
 						   ArrayList<HashMap<String, String>> arraylist) {
@@ -66,10 +63,7 @@ public class ListViewAdapter extends BaseAdapter {
 
 
 		ImageView flag;
-
-
 		TextView title;
-		TextView date;
 		TextView multitext;
 
 		inflater = (LayoutInflater) context
@@ -124,11 +118,10 @@ public class ListViewAdapter extends BaseAdapter {
 
 
 
-
-
 		// Capture position and set results to the ImageView
 		// Passes flag images URL into ImageLoader.class
 		//imageLoader.DisplayImage(resultp.get(Blog_Activity.FLAG), flag1);
+
 		imageLoader.DisplayImage(resultp.get(Blog_Activity.FLAG), flag);
 		// Capture ListView item click
 		itemView.setOnClickListener(new OnClickListener() {
@@ -160,4 +153,8 @@ public class ListViewAdapter extends BaseAdapter {
 		});
 		return itemView;
 	}
+
+
+
+
 }

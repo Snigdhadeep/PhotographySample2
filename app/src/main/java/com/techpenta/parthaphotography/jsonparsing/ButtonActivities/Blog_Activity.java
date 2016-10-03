@@ -2,6 +2,8 @@ package com.techpenta.parthaphotography.jsonparsing.ButtonActivities;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -14,20 +16,25 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.firebase.client.ValueEventListener;
+import com.firebase.client.utilities.Base64;
 import com.techpenta.parthaphotography.R;
 import com.firebase.client.ChildEventListener;
 import com.firebase.client.DataSnapshot;
 import com.firebase.client.Firebase;
 import com.firebase.client.FirebaseError;
+import com.techpenta.parthaphotography.jsonparsing.Imageloader.ImageLoader;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -48,6 +55,7 @@ public class Blog_Activity extends AppCompatActivity
     ProgressDialog mProgressDialog;
     ArrayList<HashMap<String, String>> arraylist;
     Firebase mfirebase;
+    ImageLoader imageLoader;
 
     Firebase title;
     long titlecountlong;
@@ -87,7 +95,10 @@ public class Blog_Activity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        mfirebase=new Firebase("https://parthaphotography-4cb28.firebaseio.com/Blog");
 
+
+        imageLoader = new ImageLoader(Blog_Activity.this);
 
 
 
@@ -96,10 +107,14 @@ public class Blog_Activity extends AppCompatActivity
     }//oncreate
 
 
-    @Override
-    protected void onStart() {
+
+
+
+
+   /* @Override
+   protected void onStart() {
         super.onStart();
-        final HashMap<String, String> map = new HashMap<String, String>();
+
         //firebase
 
         mfirebase=new Firebase("https://parthaphotography-4cb28.firebaseio.com/Blog");
@@ -120,10 +135,12 @@ public class Blog_Activity extends AppCompatActivity
             }
         });
 
+
+
         titlecountfire.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-
+                final HashMap<String, String> map = new HashMap<String, String>();
 
                 String titlelist=dataSnapshot.getValue(String.class);
                map.put("title",titlelist);
@@ -153,7 +170,7 @@ public class Blog_Activity extends AppCompatActivity
             }
         });
 
-    }//on start
+    }//on start*/
 
     // DownloadJSON AsyncTask
     private class DownloadJSON extends AsyncTask<Void, Void, Void> {
@@ -213,7 +230,7 @@ public class Blog_Activity extends AppCompatActivity
 
 
 
-            /*       for (int i = 0; i < count; i++) {   // iterate through jsonArray
+                   for (int i = 0; i < count; i++) {   // iterate through jsonArray
                         final HashMap<String, String> map = new HashMap<String, String>();
 
                         JSONObject jsonObject = jsonArray.getJSONObject(i);  // get jsonObject @ i position
@@ -239,9 +256,62 @@ public class Blog_Activity extends AppCompatActivity
 
                         //  Log.i("kingsukmajumder",contentsingleitem);
 
+
+
+
+                       
+
+
+
+/* partha da niche
+
+Bitmap bitmap = BitmapFactory.decodeFile(pic,options);
+
+ei  code  ta te  2 to  parameter  roechhe  ,,1ta string path
+ arekta options er  jonno ...string pathe ami  json  theke  je  url  peyechhi(pic)
+  seta put  korechhi,,,eta dilei  crash  korchhe
+
+
+
+ */
+
+
+                        // for string64
+                       //   http://pmarshall.me/2016/02/20/image-storage-with-firebase.html
+
+
+                       /*
+
+                       BitmapFactory.Options options = new BitmapFactory.Options();
+                       options.inSampleSize = 8;
+                       // shrink it down otherwise we will use stupid amounts of memory
+                       Bitmap bitmap = BitmapFactory.decodeFile(pic,options);
+                       ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                       bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                       byte[] bytes = baos.toByteArray();
+                       String base64Image = android.util.Base64.encodeToString(bytes, android.util.Base64.DEFAULT);
+
+                       // we finally have our base64 string version of the image, save it.
+                       mfirebase=new Firebase("https://parthaphotography-4cb28.firebaseio.com/Blog");
+                       mfirebase.child("pic").setValue(base64Image);
+                       System.out.println("Stored image with length: " + bytes.length);
+
+
+
+                      */
+
+
+
+
+
+
+
+
+
+
                         map.put("flag", pic);
 
-                        //   map.put("title", title);
+                         map.put("title", title);
 
                         map.put("multitext", contenthtml);
 
@@ -250,11 +320,13 @@ public class Blog_Activity extends AppCompatActivity
                         //map.put("content",contentsingleitem);
 
 
-                        Firebase title_fire = mfirebase.child("Title");
-                        Firebase titleno = title_fire.child(Integer.toString(i));
 
-                        Firebase pic_fire = mfirebase.child("Pic");
-                        Firebase pic_fireno = pic_fire.child(Integer.toString(i));
+                      /* Firebase pic_fire = mfirebase.child("Pic");
+                        Firebase pic_fireno = pic_fire.child(Integer.toString(i));*/
+
+                 /*      Firebase title_fire = mfirebase.child("Title");
+                       Firebase titleno = title_fire.child(Integer.toString(i));
+
 
                         Firebase multitext_fire = mfirebase.child("Multitext");
                         Firebase multitext_fireno = multitext_fire.child(Integer.toString(i));
@@ -264,15 +336,16 @@ public class Blog_Activity extends AppCompatActivity
 
 
                         titleno.setValue(title);
-                        pic_fireno.setValue(pic);
+                       // pic_fireno.setValue(pic);
                         multitext_fireno.setValue(contenthtml);
-                        contentsingle_fireno.setValue(contentsingleitem);
+                        contentsingle_fireno.setValue(contentsingleitem); */
+
+
 
 
                         arraylist.add(map);
                     }
 
-*/
 
 
 
@@ -301,6 +374,11 @@ public class Blog_Activity extends AppCompatActivity
 
             return null;
         }
+
+
+
+
+
 
         @Override
         protected void onPostExecute(Void args) {
@@ -392,4 +470,17 @@ public class Blog_Activity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }//nevigationitemselected
+
+
+
+
+    private void storeImageToFirebase() {
+
+    }
+
+
+
+
 }
+
+
