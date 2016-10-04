@@ -87,6 +87,8 @@ public class ListViewAdapter extends BaseAdapter {
 
 
 
+
+
 	if ((position % 2) == 0) {
 
 		Animation animation;

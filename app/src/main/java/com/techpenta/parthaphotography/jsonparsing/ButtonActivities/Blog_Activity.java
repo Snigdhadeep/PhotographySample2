@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
@@ -35,6 +36,7 @@ import org.json.JSONObject;
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -254,38 +256,24 @@ public class Blog_Activity extends AppCompatActivity
                         JSONObject contentsingleitemjson = jsonObject.getJSONObject("content");
                         String contentsingleitem = contentsingleitemjson.getString("rendered");
 
-                        //  Log.i("kingsukmajumder",contentsingleitem);
 
+                   /*    url = new URL(pic);
 
+                       Bitmap  image = BitmapFactory.decodeStream(url.openConnection().getInputStream());
 
-
-                       
-
-
-
-/* partha da niche
-
-Bitmap bitmap = BitmapFactory.decodeFile(pic,options);
-
-ei  code  ta te  2 to  parameter  roechhe  ,,1ta string path
- arekta options er  jonno ...string pathe ami  json  theke  je  url  peyechhi(pic)
-  seta put  korechhi,,,eta dilei  crash  korchhe
-
-
-
- */
-
-
+                       System.out.println("Stored image with length: " + image);*/
                         // for string64
                        //   http://pmarshall.me/2016/02/20/image-storage-with-firebase.html
 
 
-                       /*
 
-                       BitmapFactory.Options options = new BitmapFactory.Options();
+
+
+
+                   /*    BitmapFactory.Options options = new BitmapFactory.Options();
                        options.inSampleSize = 8;
                        // shrink it down otherwise we will use stupid amounts of memory
-                       Bitmap bitmap = BitmapFactory.decodeFile(pic,options);
+                      Bitmap bitmap = BitmapFactory.decodeFile(pic,options);
                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
                        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
                        byte[] bytes = baos.toByteArray();
@@ -296,9 +284,9 @@ ei  code  ta te  2 to  parameter  roechhe  ,,1ta string path
                        mfirebase.child("pic").setValue(base64Image);
                        System.out.println("Stored image with length: " + bytes.length);
 
+*/
 
 
-                      */
 
 
 
